@@ -1,7 +1,7 @@
 package com.blog.apis.payloads;
 
 public class UserDto {
-	private Integer id;
+	private int id;
 	private String name;
 	private String email;
 	private String password;
