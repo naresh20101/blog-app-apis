@@ -1,9 +1,15 @@
 package com.blog.apis.payloads;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
 public class UserDto {
 	private int id;
+	@NotEmpty
 	private String name;
+	@Email
 	private String email;
+	@NotEmpty
 	private String password;
 	private String about;
 	public Integer getId() {
