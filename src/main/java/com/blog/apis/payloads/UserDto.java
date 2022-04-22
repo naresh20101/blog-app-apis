@@ -2,14 +2,17 @@ package com.blog.apis.payloads;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 public class UserDto {
 	private int id;
 	@NotEmpty
+	@Size(min=4, message = "Name must contains 4 characters!")
 	private String name;
-	@Email
+	@Email(message = "Email is not valid")
 	private String email;
 	@NotEmpty
+	@Size(min=4, max = 8, message = "password is in between 4 and 8 characters")
 	private String password;
 	private String about;
 	public Integer getId() {
