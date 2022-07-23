@@ -1,8 +1,17 @@
 package com.blog.apis.payloads;
 
+import javax.validation.constraints.NotBlank;
+
+import javax.validation.constraints.Size;
+
+
 public class CategoryDto {
 	private Integer categoryId;
+    @NotBlank
+	@Size(min=4, message="The minimum character is 4!!")
 	private String categoryTitle;
+	@NotBlank
+	@Size(min=14, message="The minimum character is 14 !!!")
 	private String categoryDescription;
 	public Integer getCategoryId() {
 		return categoryId;

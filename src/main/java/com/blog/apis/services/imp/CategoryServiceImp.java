@@ -1,16 +1,19 @@
 package com.blog.apis.services.imp;
 
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.blog.apis.entities.Category;
 import com.blog.apis.exceptions.ResourceNotFoundException;
 import com.blog.apis.payloads.CategoryDto;
 import com.blog.apis.repositories.CategoryRepo;
 import com.blog.apis.services.CategoryServices;
-
+@Service
 public class CategoryServiceImp  implements CategoryServices{
 	@Autowired
 	private CategoryRepo categoryRepo;
@@ -47,6 +50,11 @@ public class CategoryServiceImp  implements CategoryServices{
 	@Override
 	public List<CategoryDto> getAllCategories() {
 		// TODO Auto-generated method stub
+		List<Category> categories=this.categoryRepo.findAll();
+		List<CategoryDto> catDtos=categories.stream().map((cat)-> this.modelMapper.map(cat, CategoryDto.class)).collect(Collectors.toList());
+		
+				
+		
 		return null;
 	}
 
